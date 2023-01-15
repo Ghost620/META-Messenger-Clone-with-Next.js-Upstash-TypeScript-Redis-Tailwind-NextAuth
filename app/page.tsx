@@ -1,12 +1,14 @@
-import dynamic from 'next/dynamic'
 import React from 'react'
+import ChatInput from './ChatInput'
+import MessageList from './MessageList'
 
 const Homepage = () => {
   return (
-    <div className='text-4xl'>
-      Homepage
-    </div>
+    <main>
+      <MessageList />
+      <ChatInput />
+    </main>
   )
 }
 
-export default dynamic(() => Promise.resolve(Homepage), { ssr: false })
+export default Homepage
