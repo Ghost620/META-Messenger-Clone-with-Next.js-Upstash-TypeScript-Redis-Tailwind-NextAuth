@@ -6,7 +6,6 @@ import { Message } from '../typings'
 import useSWR from 'swr'
 import fetcher from '../utils/fetchMessages'
 
-
 const ChatInput = () => {
 
   const [input, setInput] = useState("")

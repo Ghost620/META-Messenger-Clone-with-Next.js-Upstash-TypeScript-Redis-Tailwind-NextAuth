@@ -1,13 +1,17 @@
-import React from 'react'
+"use client";
+
+import useSWR from "swr"
+import { Message } from "../typings";
+import fetcher from '../utils/fetchMessages'
+import MessageComponent from "./MessageComponent";
 
 const MessageList = () => {
+  const { data: messages, error, mutate } = useSWR<Message[]>("/api/getMessages", fetcher)
   return (
     <div>
-        <p>Msg1</p>
-        <p>Msg2</p>
-        <p>Msg3</p>
-        <p>Msg4</p>
-        <p>Msg5</p>
+      {messages?.map(msg => (
+        <MessageComponent key={msg.id} message={msg} />
+      ))}
     </div>
   )
 }
