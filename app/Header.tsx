@@ -3,6 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { signOut } from 'next-auth/react';
 
 const Header = () => {
     const session = true;
@@ -20,7 +21,7 @@ const Header = () => {
                     </div>
                 </div>
 
-                <button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' onClick={() => console.log('hero')}> Sign Out </button>
+                <button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' onClick={() => signOut()}> Sign Out </button>
 
             </header>
         )
