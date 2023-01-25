@@ -1,9 +1,8 @@
-"use client";
-
 import Image from 'next/image'
 import Link from 'next/link'
 import { signOut } from 'next-auth/react';
 import { unstable_getServerSession } from 'next-auth/next';
+import LogoutButton from './LogoutButton';
 
 const Header = async () => {
     const session = await unstable_getServerSession();
@@ -21,7 +20,7 @@ const Header = async () => {
                     </div>
                 </div>
 
-                <button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' onClick={() => signOut()}> Sign Out </button>
+                <LogoutButton />
 
             </header>
         )
