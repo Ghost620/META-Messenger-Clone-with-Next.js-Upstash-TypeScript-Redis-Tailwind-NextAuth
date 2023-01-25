@@ -34,7 +34,7 @@ const Header = async () => {
 
             </div>
 
-            <Link href="/auth/signin" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'> Sign In </Link>
+            {/* <Link href="/auth/signin" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'> Sign In </Link> */}
         </div>
     </header>
   )
