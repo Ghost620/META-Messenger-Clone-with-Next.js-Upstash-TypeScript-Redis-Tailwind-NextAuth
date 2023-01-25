@@ -8,7 +8,7 @@ import fetcher from '../utils/fetchMessages'
 import { unstable_getServerSession } from 'next-auth/next'
 
 type Props = {
-  session: Awaited<ReturnType<typeof unstable_getServerSession>>
+  session: any;
 }
 
 const ChatInput = ({session}: Props) => {
@@ -18,7 +18,7 @@ const ChatInput = ({session}: Props) => {
 
   const addMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!input) return;
+    if (!input || !session) return;
 
     const messageToSend = input;
     setInput("");
@@ -28,9 +28,9 @@ const ChatInput = ({session}: Props) => {
       id,
       message: messageToSend,
       createdAt: Date.now(),
-      username: 'Elon',
-      profilePic: 'https://cdn.pixabay.com/photo/2023/01/10/07/12/cat-7709087__340.jpg',
-      email: 'faghost6201@gmail.com'
+      username: session?.user?.name!,
+      profilePic: session?.user?.image!,
+      email: session?.user?.email!,
     }
 
     const uploadMessageToUpstash = async () => {
