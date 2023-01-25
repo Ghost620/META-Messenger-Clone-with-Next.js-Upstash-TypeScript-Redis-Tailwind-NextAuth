@@ -1,12 +1,12 @@
 "use client";
 
-import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { signOut } from 'next-auth/react';
+import { unstable_getServerSession } from 'next-auth/next';
 
-const Header = () => {
-    const session = true;
+const Header = async () => {
+    const session = await unstable_getServerSession();
 
     if(session){
         return (
